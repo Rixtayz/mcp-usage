@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 708" width="1000" height="708" role="img" aria-label="mcp-usage terminal output: 31 MCP servers connected, 3 used, 14 unused, with recommendations to disconnect idle servers">
+<rect width="1000" height="708" rx="14" fill="#0d1117"/>
+<text x="32" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#f0f6fc">mcp-usage</text>
+<text x="32" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#c9d1d9">You have 40 MCP servers connected. You use three. <tspan fill="#3fb950" font-weight="600">Find out which.</tspan></text>
+<rect x="32" y="128" width="936" height="556" rx="10" fill="#161b22" stroke="#30363d"/>
+<circle cx="54" cy="150" r="6" fill="#ff5f56"/><circle cx="74" cy="150" r="6" fill="#ffbd2e"/><circle cx="94" cy="150" r="6" fill="#27c93f"/>
+<line x1="32" y1="172" x2="968" y2="172" stroke="#30363d"/>
+<g font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14.5">
+<text x="54" y="214" style="white-space:pre"><tspan fill="#8b949e">$ </tspan><tspan fill="#f0f6fc">npx @rixtay/mcp-usage</tspan></text>
+<text x="54" y="260" style="white-space:pre"><tspan fill="#c9d1d9">mcp-usage | last 30 days | 39 sessions</tspan></text>
+<text x="54" y="283" style="white-space:pre"><tspan fill="#c9d1d9">31 servers: </tspan><tspan fill="#3fb950">3 used</tspan><tspan fill="#c9d1d9">, </tspan><tspan fill="#d29922">14 unused</tspan><tspan fill="#c9d1d9">, </tspan><tspan fill="#f85149">1 failed</tspan><tspan fill="#c9d1d9">, </tspan><tspan fill="#58a6ff">13 needs-auth</tspan><tspan fill="#c9d1d9"> | 82 MCP calls</tspan></text>
+<text x="54" y="329" text-anchor="start" fill="#8b949e">SERVER</text>
+<text x="339" y="329" text-anchor="start" fill="#8b949e">STATUS</text>
+<text x="464" y="329" text-anchor="end" fill="#8b949e">TOOLS</text>
+<text x="554" y="329" text-anchor="end" fill="#8b949e">SESSIONS</text>
+<text x="619" y="329" text-anchor="end" fill="#8b949e">CALLS</text>
+<text x="679" y="329" text-anchor="end" fill="#8b949e">ERR%</text>
+<text x="769" y="329" text-anchor="end" fill="#8b949e">~TOKENS</text>
+<text x="794" y="329" text-anchor="start" fill="#8b949e">LAST USED</text>
+<text x="54" y="352" text-anchor="start" fill="#c9d1d9">plugin:playwright:playwright</text>
+<text x="339" y="352" text-anchor="start" fill="#3fb950">used</text>
+<text x="464" y="352" text-anchor="end" fill="#c9d1d9">26</text>
+<text x="554" y="352" text-anchor="end" fill="#c9d1d9">37</text>
+<text x="619" y="352" text-anchor="end" fill="#c9d1d9">57</text>
+<text x="679" y="352" text-anchor="end" fill="#c9d1d9">35%</text>
+<text x="769" y="352" text-anchor="end" fill="#c9d1d9">~3,442</text>
+<text x="794" y="352" text-anchor="start" fill="#c9d1d9">2026-09-16</text>
+<text x="54" y="375" text-anchor="start" fill="#c9d1d9">claude.ai Firecrawl</text>
+<text x="339" y="375" text-anchor="start" fill="#3fb950">used</text>
+<text x="464" y="375" text-anchor="end" fill="#c9d1d9">26</text>
+<text x="554" y="375" text-anchor="end" fill="#c9d1d9">35</text>
+<text x="619" y="375" text-anchor="end" fill="#c9d1d9">16</text>
+<text x="679" y="375" text-anchor="end" fill="#c9d1d9">0%</text>
+<text x="769" y="375" text-anchor="end" fill="#c9d1d9">~16,948</text>
+<text x="794" y="375" text-anchor="start" fill="#c9d1d9">2026-09-14</text>
+<text x="54" y="398" text-anchor="start" fill="#c9d1d9">claude.ai Context7</text>
+<text x="339" y="398" text-anchor="start" fill="#3fb950">used</text>
+<text x="464" y="398" text-anchor="end" fill="#c9d1d9">2</text>
+<text x="554" y="398" text-anchor="end" fill="#c9d1d9">38</text>
+<text x="619" y="398" text-anchor="end" fill="#c9d1d9">9</text>
+<text x="679" y="398" text-anchor="end" fill="#c9d1d9">0%</text>
+<text x="769" y="398" text-anchor="end" fill="#c9d1d9">~10,197</text>
+<text x="794" y="398" text-anchor="start" fill="#c9d1d9">2026-08-24</text>
+<text x="54" y="421" text-anchor="start" fill="#c9d1d9">claude.ai Design Tool</text>
+<text x="339" y="421" text-anchor="start" fill="#d29922">unused</text>
+<text x="464" y="421" text-anchor="end" fill="#8b949e">42</text>
+<text x="554" y="421" text-anchor="end" fill="#8b949e">38</text>
+<text x="619" y="421" text-anchor="end" fill="#8b949e">0</text>
+<text x="679" y="421" text-anchor="end" fill="#8b949e">-</text>
+<text x="769" y="421" text-anchor="end" fill="#8b949e">-</text>
+<text x="794" y="421" text-anchor="start" fill="#8b949e">-</text>
+<text x="54" y="444" text-anchor="start" fill="#c9d1d9">claude.ai Mail</text>
+<text x="339" y="444" text-anchor="start" fill="#d29922">unused</text>
+<text x="464" y="444" text-anchor="end" fill="#8b949e">29</text>
+<text x="554" y="444" text-anchor="end" fill="#8b949e">38</text>
+<text x="619" y="444" text-anchor="end" fill="#8b949e">0</text>
+<text x="679" y="444" text-anchor="end" fill="#8b949e">-</text>
+<text x="769" y="444" text-anchor="end" fill="#8b949e">-</text>
+<text x="794" y="444" text-anchor="start" fill="#8b949e">-</text>
+<text x="54" y="467" text-anchor="start" fill="#c9d1d9">claude.ai Video Studio</text>
+<text x="339" y="467" text-anchor="start" fill="#d29922">unused</text>
+<text x="464" y="467" text-anchor="end" fill="#8b949e">170</text>
+<text x="554" y="467" text-anchor="end" fill="#8b949e">37</text>
+<text x="619" y="467" text-anchor="end" fill="#8b949e">0</text>
+<text x="679" y="467" text-anchor="end" fill="#8b949e">-</text>
+<text x="769" y="467" text-anchor="end" fill="#8b949e">-</text>
+<text x="794" y="467" text-anchor="start" fill="#8b949e">-</text>
+<text x="54" y="490" text-anchor="start" fill="#c9d1d9">claude.ai Ads Manager</text>
+<text x="339" y="490" text-anchor="start" fill="#d29922">unused</text>
+<text x="464" y="490" text-anchor="end" fill="#8b949e">106</text>
+<text x="554" y="490" text-anchor="end" fill="#8b949e">37</text>
+<text x="619" y="490" text-anchor="end" fill="#8b949e">0</text>
+<text x="679" y="490" text-anchor="end" fill="#8b949e">-</text>
+<text x="769" y="490" text-anchor="end" fill="#8b949e">-</text>
+<text x="794" y="490" text-anchor="start" fill="#8b949e">-</text>
+<text x="54" y="536" style="white-space:pre"><tspan fill="#f85149">Failed to connect (1): </tspan><tspan fill="#c9d1d9">plugin:data:warehouse</tspan></text>
+<text x="54" y="559" style="white-space:pre"><tspan fill="#58a6ff">Waiting for authorization (13): </tspan><tspan fill="#c9d1d9">claude.ai Calendar, plugin:marketing:seo, +11 more</tspan></text>
+<text x="54" y="605" style="white-space:pre"><tspan fill="#d29922">disconnect (14)</tspan></text>
+<text x="72" y="628" style="white-space:pre"><tspan fill="#c9d1d9">claude.ai Video Studio: </tspan><tspan fill="#8b949e">available in 37 sessions, never called (170 tools loaded each time)</tspan></text>
+<text x="72" y="651" style="white-space:pre"><tspan fill="#c9d1d9">claude.ai Ads Manager: </tspan><tspan fill="#8b949e">available in 37 sessions, never called (106 tools loaded each time)</tspan></text>
+</g>
+</svg>

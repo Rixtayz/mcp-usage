@@ -5,7 +5,8 @@ import { renderReport } from "./report.js";
 import { ProjectsDirNotFoundError } from "./scan.js";
 import { VERSION } from "./version.js";
 
-const HELP = `Usage: mcp-usage [options]
+const HELP = `Usage: mcp-usage [options]     Print the usage report
+       mcp-usage serve         Run as an MCP server over stdio
 
 Find out which of your MCP servers you actually use, from local Claude Code transcripts.
 

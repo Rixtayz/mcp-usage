@@ -36,7 +36,7 @@ describe("mangleServerId", () => {
 describe("displayLabel", () => {
   it.each([
     ["claude_ai_Gmail", "claude.ai Gmail"],
-    ["claude_ai_Meta_Ads", "claude.ai Meta Ads"],
+    ["claude_ai_Google_Drive", "claude.ai Google Drive"],
     ["plugin_small-business_gmail", "plugin:small-business:gmail"],
     ["plugin_playwright_playwright", "plugin:playwright:playwright"],
     ["plugin_a_b_c", "plugin_a_b_c"],

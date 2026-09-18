@@ -1,7 +1,7 @@
 # mcp-usage — design
 
 Date: 2026-09-17
-Status: approved
+Status: implemented in v0.1
 
 ## Problem
 

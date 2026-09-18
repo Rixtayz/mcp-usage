@@ -104,8 +104,8 @@ describe("Aggregator", () => {
   });
 
   it("guesses a readable label when no canonical id was recorded", () => {
-    const agg = run([{ kind: "availability", sessionId: "s1", added: ["mcp__claude_ai_Meta_Ads__list"] }]);
-    expect(agg.serverStats()[0]).toMatchObject({ server: "claude_ai_Meta_Ads", label: "claude.ai Meta Ads" });
+    const agg = run([{ kind: "availability", sessionId: "s1", added: ["mcp__claude_ai_Google_Drive__list"] }]);
+    expect(agg.serverStats()[0]).toMatchObject({ server: "claude_ai_Google_Drive", label: "claude.ai Google Drive" });
   });
 
   it("ranks idle servers by how often, then how heavily, they were loaded", () => {

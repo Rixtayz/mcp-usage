@@ -1,9 +1,18 @@
 {
-  "name": "mcp-usage",
+  "name": "@rixtay/mcp-usage",
   "version": "0.1.0",
   "description": "Find out which of your MCP servers you actually use. Local, read-only audit of Claude Code transcripts: used, unused, failing and needs-auth servers.",
   "type": "module",
   "license": "MIT",
+  "author": "Rixtayz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rixtayz/mcp-usage.git"
+  },
+  "homepage": "https://github.com/Rixtayz/mcp-usage#readme",
+  "bugs": {
+    "url": "https://github.com/Rixtayz/mcp-usage/issues"
+  },
   "bin": {
     "mcp-usage": "dist/bin/cli.js",
     "mcp-usage-server": "dist/bin/server.js"
@@ -16,19 +25,25 @@
   "engines": {
     "node": ">=20"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "mcp",
     "model-context-protocol",
     "claude-code",
     "claude",
     "usage",
-    "audit"
+    "audit",
+    "mcp-server",
+    "developer-tools"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "inspect": "npx @modelcontextprotocol/inspector@latest node dist/bin/cli.js serve"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
