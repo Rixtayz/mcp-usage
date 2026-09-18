@@ -194,7 +194,7 @@ MCP tools via in-memory client/server transport.
 
 ## Delivery
 
-TypeScript, ESM, Node ≥ 20. Dependencies: `@modelcontextprotocol/sdk`, `zod`.
+TypeScript, ESM, Node ≥ 22 (vitest 5 requires it; Node 20 is end-of-life). Dependencies: `@modelcontextprotocol/sdk`, `zod`.
 Dev: `typescript`, `vitest`, `tsx`. MIT license. GitHub Actions: test matrix on
 Windows, Linux, macOS. npm package `mcp-usage` with `bin` entries `mcp-usage`
 (CLI) and `mcp-usage-server` (MCP). README in English with the table
