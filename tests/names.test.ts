@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mangleServerId, parseToolName } from "../src/names.js";
+import { displayLabel, isHostProvided, mangleServerId, parseToolName } from "../src/names.js";
 
 describe("parseToolName", () => {
   it.each([
@@ -30,5 +30,26 @@ describe("mangleServerId", () => {
     ["claude-in-chrome", "claude-in-chrome"],
   ])("maps %s to %s", (canonical, mangled) => {
     expect(mangleServerId(canonical)).toBe(mangled);
+  });
+});
+
+describe("displayLabel", () => {
+  it.each([
+    ["claude_ai_Gmail", "claude.ai Gmail"],
+    ["claude_ai_Meta_Ads", "claude.ai Meta Ads"],
+    ["plugin_small-business_gmail", "plugin:small-business:gmail"],
+    ["plugin_playwright_playwright", "plugin:playwright:playwright"],
+    ["plugin_a_b_c", "plugin_a_b_c"],
+    ["0a1b2c3d-1111-4222-8333-444455556666", "0a1b2c3d-1111-4222-8333-444455556666"],
+    ["ccd_session_mgmt", "ccd_session_mgmt"],
+  ])("guesses a readable label for %s", (server, label) => {
+    expect(displayLabel(server)).toBe(label);
+  });
+});
+
+describe("isHostProvided", () => {
+  it("recognizes servers bundled with the Claude desktop app", () => {
+    expect(isHostProvided("ccd_session_mgmt")).toBe(true);
+    expect(isHostProvided("claude_ai_Gmail")).toBe(false);
   });
 });

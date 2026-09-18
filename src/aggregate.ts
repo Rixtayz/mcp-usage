@@ -1,4 +1,4 @@
-import { mangleServerId, parseToolName } from "./names.js";
+import { displayLabel, mangleServerId, parseToolName } from "./names.js";
 import type { Event, ServerStats, ServerStatus, ToolStats } from "./types.js";
 
 const BYTES_PER_TOKEN = 4;
@@ -80,7 +80,7 @@ export class Aggregator {
       const resultBytes = tools.reduce((n, t) => n + t.resultBytes, 0);
       out.push({
         server,
-        label: this.labels.get(server) ?? server,
+        label: this.labels.get(server) ?? displayLabel(server),
         toolsAvailable: acc.toolsAvailable.size,
         sessionsAvailable: acc.sessionsAvailable.size,
         calls,
@@ -97,7 +97,14 @@ export class Aggregator {
         tools,
       });
     }
-    return out.sort((a, b) => b.calls - a.calls || a.label.localeCompare(b.label));
+    // Busiest first; among idle servers, the ones loaded most often and most heavily first.
+    return out.sort(
+      (a, b) =>
+        b.calls - a.calls ||
+        b.sessionsAvailable - a.sessionsAvailable ||
+        b.toolsAvailable - a.toolsAvailable ||
+        a.label.localeCompare(b.label),
+    );
   }
 
   private server(id: string): ServerAcc {

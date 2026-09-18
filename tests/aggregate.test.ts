@@ -103,6 +103,20 @@ describe("Aggregator", () => {
     expect(agg.serverStats()[0]).toMatchObject({ server: "claude_ai_Context7", label: "claude.ai Context7" });
   });
 
+  it("guesses a readable label when no canonical id was recorded", () => {
+    const agg = run([{ kind: "availability", sessionId: "s1", added: ["mcp__claude_ai_Meta_Ads__list"] }]);
+    expect(agg.serverStats()[0]).toMatchObject({ server: "claude_ai_Meta_Ads", label: "claude.ai Meta Ads" });
+  });
+
+  it("ranks idle servers by how often, then how heavily, they were loaded", () => {
+    const agg = run([
+      { kind: "availability", sessionId: "s1", added: ["mcp__rare__t", "mcp__often__t", "mcp__big__a", "mcp__big__b"] },
+      { kind: "availability", sessionId: "s2", added: ["mcp__often__t", "mcp__big__a"] },
+      { kind: "health", sessionId: "s1", failed: [], needsAuth: ["pending"] },
+    ]);
+    expect(agg.serverStats().map((s) => s.server)).toEqual(["big", "often", "rare", "pending"]);
+  });
+
   it("does not create servers from roster events alone", () => {
     expect(run([{ kind: "roster", sessionId: "s1", canonicalIds: ["ghost"] }]).serverStats()).toEqual([]);
   });

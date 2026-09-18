@@ -27,7 +27,7 @@ describe("cli", () => {
     expect(code).toBe(0);
     expect(out).toContain("3 servers: 1 used, 1 unused, 1 failed, 0 needs-auth");
     expect(out).toMatch(/busy\s+used\s+1\s+1\s+1\s+0%\s+~1,000\s+2026-09-10/);
-    expect(out).toMatch(/plugin:data:definite\s+failed/);
+    expect(out).toContain("Failed to connect (1): plugin:data:definite");
     expect(out).toContain("disconnect");
     expect(out).toContain("estimates");
     expect(out).not.toContain("SECRET");

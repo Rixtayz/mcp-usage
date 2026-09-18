@@ -1,3 +1,4 @@
+import { isHostProvided } from "./names.js";
 import type { Recommendation, RecommendationAction, ServerStats } from "./types.js";
 
 export const DEFAULT_MIN_SESSIONS = 5;
@@ -15,7 +16,7 @@ const RULES: [RecommendationAction, Rule][] = [
   [
     "disconnect",
     (s, minSessions) =>
-      s.status === "unused" && s.sessionsAvailable >= minSessions
+      s.status === "unused" && s.sessionsAvailable >= minSessions && !isHostProvided(s.server)
         ? `Available in ${plural(s.sessionsAvailable, "session")}, never called (${plural(s.toolsAvailable, "tool")} loaded each time).`
         : null,
   ],

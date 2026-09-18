@@ -39,6 +39,10 @@ describe("recommend", () => {
     expect(recommend([s({ sessionsAvailable: 4 })], { minSessions: 2 })).toHaveLength(1);
   });
 
+  it("never suggests disconnecting servers bundled with the host app", () => {
+    expect(recommend([s({ server: "ccd_session_mgmt", sessionsAvailable: 50 })])).toEqual([]);
+  });
+
   it("flags persistent failures and pending auth", () => {
     const recs = recommend([
       s({ server: "f", status: "failed", sessionsFailed: 3, sessionsAvailable: 0 }),

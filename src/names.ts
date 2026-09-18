@@ -23,3 +23,21 @@ export function parseToolName(name: string): ToolName | null {
 export function mangleServerId(id: string): string {
   return id.replace(/[^A-Za-z0-9_-]/g, "_");
 }
+
+/**
+ * Best-effort readable label for a mangled server id when no canonical id was
+ * recorded. Mangling is lossy, so only the two unambiguous shapes are undone.
+ */
+export function displayLabel(server: string): string {
+  if (server.startsWith("claude_ai_")) {
+    return `claude.ai ${server.slice("claude_ai_".length).replaceAll("_", " ")}`;
+  }
+  const parts = server.split("_");
+  if (parts.length === 3 && parts[0] === "plugin") return parts.join(":");
+  return server;
+}
+
+/** Servers bundled with the Claude desktop app; the user cannot disconnect them. */
+export function isHostProvided(server: string): boolean {
+  return server.startsWith("ccd_");
+}
