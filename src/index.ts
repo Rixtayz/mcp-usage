@@ -6,3 +6,4 @@ export { parseFile, parseLine } from "./parser.js";
 export { DEFAULT_MIN_SESSIONS, recommend } from "./recommend.js";
 export { ProjectsDirNotFoundError } from "./scan.js";
 export type * from "./types.js";
+export { createServer } from "./server.js";
