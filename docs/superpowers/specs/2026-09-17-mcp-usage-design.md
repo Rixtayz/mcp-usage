@@ -69,15 +69,18 @@ Rules:
 
 ```
 src/
-  names.ts               parseToolName, mangleServerId, display labels
+  types.ts               Event, ServerStats, Recommendation, Report, ClientAdapter
+  names.ts               parseToolName, mangleServerId
   scan.ts                discover transcript files; --since (mtime), --project filters
   parser.ts              streaming JSONL reader → typed events
   adapters/claude-code.ts  ClientAdapter implementation (scan + parser)
   aggregate.ts           events → per-server stats
   recommend.ts           stats → prioritized recommendations
+  analyze.ts             options → Report (the one entry point both shells use)
   report.ts              text table rendering
   cli.ts                 argument parsing, output
-  server.ts              MCP stdio server
+  server.ts              MCP server factory
+  bin/cli.ts, bin/server.ts  executable entry points
   index.ts               public exports
 ```
 
@@ -86,17 +89,24 @@ src/
 ```ts
 type Event =
   | { kind: "call"; sessionId: string; timestamp?: string; toolUseId: string;
-      server: string; tool: string; sidechain: boolean }
+      server: string; tool: string }
   | { kind: "result"; sessionId: string; toolUseId: string; isError: boolean; bytes: number }
   | { kind: "availability"; sessionId: string; timestamp?: string;
-      added: string[]; removed: string[] }          // full mcp__ tool names
+      added: string[] }                              // full mcp__ tool names
   | { kind: "health"; sessionId: string; timestamp?: string;
-      failed: { name: string; errorCode?: string }[]; needsAuth: string[] }
+      failed: string[]; needsAuth: string[] }        // canonical server ids
   | { kind: "roster"; sessionId: string; canonicalIds: string[] };
 ```
 
-The parser emits `result` events for every `tool_result`; the aggregator keeps
-only those whose `toolUseId` matches an MCP `call`.
+The parser tracks pending MCP call ids per file and emits a `result` event only
+for a `tool_result` that answers one of them. Lines containing none of the
+relevant markers are skipped before `JSON.parse`. `removedNames` is ignored: a
+server removed mid-session was still available in that session. Error codes and
+error bodies of failed servers are never read into events. Result bytes count
+text only; image blocks are excluded.
+
+Events carrying a timestamp older than the `--since` window are dropped by the
+aggregator (files are also pre-filtered by mtime).
 
 ### Per-server stats (aggregate output)
 
@@ -179,8 +189,8 @@ vitest, test-first. Fixtures are **synthetic** JSONL built by helpers in the
 tests; no real transcript data enters the repository. Coverage targets: name
 parsing edge cases; absent `is_error`; sidecar records; oversized line;
 missing fields; subagent transcripts; canonical↔mangled reconciliation;
-failed / needs-auth servers; `removedNames`; privacy guarantee; CLI `--json`
-snapshot; MCP tools via in-memory client/server transport.
+failed / needs-auth servers; privacy guarantee; CLI text and `--json` output;
+MCP tools via in-memory client/server transport.
 
 ## Delivery
 
