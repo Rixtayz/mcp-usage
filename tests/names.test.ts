@@ -1,0 +1,34 @@
+import { describe, expect, it } from "vitest";
+import { mangleServerId, parseToolName } from "../src/names.js";
+
+describe("parseToolName", () => {
+  it.each([
+    ["mcp__claude_ai_Firecrawl_v2__firecrawl_search", "claude_ai_Firecrawl_v2", "firecrawl_search"],
+    ["mcp__plugin_playwright_playwright__browser_navigate", "plugin_playwright_playwright", "browser_navigate"],
+    ["mcp__0a1b2c3d-1111-4222-8333-444455556666__pr_add_marker", "0a1b2c3d-1111-4222-8333-444455556666", "pr_add_marker"],
+    ["mcp__plugin_small-business_shopify__search__docs", "plugin_small-business_shopify", "search__docs"],
+    ["mcp__9f8e7d6c__apify--instagram-scraper", "9f8e7d6c", "apify--instagram-scraper"],
+    ["mcp__claude_ai_Context7__query-docs", "claude_ai_Context7", "query-docs"],
+  ])("splits %s on the first double underscore", (name, server, tool) => {
+    expect(parseToolName(name)).toEqual({ server, tool });
+  });
+
+  it.each(["Bash", "mcp__", "mcp__server", "mcp__server__", "mcp____tool", "xmcp__a__b", ""])(
+    "returns null for %j",
+    (name) => {
+      expect(parseToolName(name)).toBeNull();
+    },
+  );
+});
+
+describe("mangleServerId", () => {
+  it.each([
+    ["claude.ai Context7", "claude_ai_Context7"],
+    ["plugin:small-business:shopify", "plugin_small-business_shopify"],
+    ["plugin:playwright:playwright", "plugin_playwright_playwright"],
+    ["0a1b2c3d-1111-4222-8333-444455556666", "0a1b2c3d-1111-4222-8333-444455556666"],
+    ["claude-in-chrome", "claude-in-chrome"],
+  ])("maps %s to %s", (canonical, mangled) => {
+    expect(mangleServerId(canonical)).toBe(mangled);
+  });
+});

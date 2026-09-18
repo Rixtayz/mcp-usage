@@ -1,0 +1,42 @@
+{
+  "name": "mcp-usage",
+  "version": "0.1.0",
+  "description": "Find out which of your MCP servers you actually use. Local, read-only audit of Claude Code transcripts: used, unused, failing and needs-auth servers.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "mcp-usage": "dist/bin/cli.js",
+    "mcp-usage-server": "dist/bin/server.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude-code",
+    "claude",
+    "usage",
+    "audit"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}
