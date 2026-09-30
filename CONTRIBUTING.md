@@ -45,3 +45,12 @@ Client-specific code lives behind the `ClientAdapter` interface in [`src/types.t
 - Add a line under `Unreleased` in [CHANGELOG.md](CHANGELOG.md) for anything a user would notice.
 
 Security problems, especially anything that could leak transcript content, go through [SECURITY.md](SECURITY.md) rather than a public issue.
+
+## Releasing (maintainer)
+
+1. Bump the version in `package.json` and in both `version` fields of `server.json`, then run `npm install --package-lock-only`.
+2. Move the `Unreleased` entries in `CHANGELOG.md` under the new version.
+3. Commit, then `npm publish` (tests, typecheck and build run first).
+4. Tag and push: `git tag -a vX.Y.Z -m "vX.Y.Z"` and `git push origin main vX.Y.Z`.
+5. Run **Publish to MCP Registry** from the Actions tab. It checks that `server.json` matches the version now on npm, then publishes through GitHub OIDC.
+6. Create the GitHub release from the tag, with the changelog entry as notes.
