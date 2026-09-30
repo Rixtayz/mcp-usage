@@ -4,6 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@rixtay/mcp-usage)](https://www.npmjs.com/package/@rixtay/mcp-usage)
 [![Node](https://img.shields.io/badge/node-%E2%89%A522-339933)](package.json)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![MCP Registry](https://img.shields.io/badge/MCP_Registry-io.github.Rixtayz%2Fmcp--usage-6f42c1)](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.Rixtayz/mcp-usage)
 
 ![mcp-usage: find out which of your MCP servers you actually use](docs/hero.svg)
 
@@ -71,6 +72,8 @@ claude mcp add --scope user --transport stdio mcp-usage -- npx -y @rixtay/mcp-us
 ```
 
 ## 3. Connect to Claude Desktop / Cowork / any MCP client
+
+mcp-usage is listed in the official [MCP Registry](https://registry.modelcontextprotocol.io) as `io.github.Rixtayz/mcp-usage`, so clients that browse the registry can install it by name. Otherwise, configure it by hand:
 
 Edit `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS (or `%APPDATA%\Claude\claude_desktop_config.json` on Windows), reachable through **Settings → Developer → Edit Config**.
 
