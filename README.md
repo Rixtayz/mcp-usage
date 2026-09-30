@@ -1,5 +1,10 @@
 # mcp-usage
 
+[![CI](https://github.com/Rixtayz/mcp-usage/actions/workflows/ci.yml/badge.svg)](https://github.com/Rixtayz/mcp-usage/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/@rixtay/mcp-usage)](https://www.npmjs.com/package/@rixtay/mcp-usage)
+[![Node](https://img.shields.io/badge/node-%E2%89%A522-339933)](package.json)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 ![mcp-usage: find out which of your MCP servers you actually use](docs/hero.svg)
 
 A small, focused [MCP](https://modelcontextprotocol.io) server and CLI that reads your **local Claude Code transcripts** and tells you, for every MCP server you have connected, whether it is actually **used**, sits **idle** in every session, **fails to connect**, or has been **waiting for authorization** for weeks — and what to disconnect.
@@ -149,6 +154,12 @@ Stack: `@modelcontextprotocol/sdk` v1, zod v4, nothing else at runtime. Design n
 - Servers bundled with the Claude desktop app (`ccd_*`) are reported but never flagged for disconnection: you cannot remove them.
 - Claude Code deletes old transcripts, so a long `--since` window only sees what is still on disk.
 - **Claude Code only**, for now. Adapters for other clients are welcome.
+
+## Contributing
+
+Bug reports, fixes and adapters for other MCP clients are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). If Claude Code updates and the report suddenly looks wrong, [open a bug](https://github.com/Rixtayz/mcp-usage/issues/new?template=bug_report.yml) with your Claude Code version. Found a way the tool could leak transcript content? Please report it privately, as described in [SECURITY.md](SECURITY.md).
+
+Release history: [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 

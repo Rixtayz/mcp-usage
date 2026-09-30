@@ -14,8 +14,7 @@
     "url": "https://github.com/Rixtayz/mcp-usage/issues"
   },
   "bin": {
-    "mcp-usage": "dist/bin/cli.js",
-    "mcp-usage-server": "dist/bin/server.js"
+    "mcp-usage": "dist/bin/cli.js"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

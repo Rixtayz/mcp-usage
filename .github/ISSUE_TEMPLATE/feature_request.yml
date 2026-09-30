@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest a new check, recommendation, output or client.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the question about your MCP servers that mcp-usage can't answer today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to see?
+      description: For a new client (Cursor, Codex, …), say where it stores its logs if you know.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: The feature keeps the tool local, read-only and content-free (no prompts, responses or tool outputs in the output).
+          required: true
