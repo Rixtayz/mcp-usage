@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Rixtayz/mcp-usage",
+  "title": "mcp-usage",
+  "description": "Find out which MCP servers you actually use: local, read-only audit of Claude Code transcripts.",
+  "websiteUrl": "https://github.com/Rixtayz/mcp-usage#readme",
+  "repository": {
+    "url": "https://github.com/Rixtayz/mcp-usage",
+    "source": "github"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@rixtay/mcp-usage",
+      "version": "0.1.1",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "serve"
+        }
+      ]
+    }
+  ]
+}

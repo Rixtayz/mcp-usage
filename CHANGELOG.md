@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-30
+
+### Added
+
+- `mcpName` in `package.json` and a `server.json`, for listing in the official MCP Registry as `io.github.Rixtayz/mcp-usage`.
+
+### Changed
+
+- Dependencies: `@modelcontextprotocol/sdk` 1.30.1.
+
 ### Removed
 
 - The separate `mcp-usage-server` command. Use `mcp-usage serve`, which the README already documents.
@@ -20,5 +30,6 @@ First public release.
 - Streaming parser for Claude Code 2.1.233 – 2.1.274 transcripts, including subagent transcripts.
 - Privacy tests that assert no transcript content reaches the library, CLI or MCP output.
 
-[Unreleased]: https://github.com/Rixtayz/mcp-usage/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Rixtayz/mcp-usage/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/Rixtayz/mcp-usage/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Rixtayz/mcp-usage/releases/tag/v0.1.0

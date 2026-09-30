@@ -1,6 +1,7 @@
 {
   "name": "@rixtay/mcp-usage",
-  "version": "0.1.0",
+  "mcpName": "io.github.Rixtayz/mcp-usage",
+  "version": "0.1.1",
   "description": "Find out which of your MCP servers you actually use. Local, read-only audit of Claude Code transcripts: used, unused, failing and needs-auth servers.",
   "type": "module",
   "license": "MIT",
