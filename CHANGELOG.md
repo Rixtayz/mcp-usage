@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Changed
+
+- `engines` now requires Node.js 22 or newer, matching the README, the badge and CI (vitest 5 no longer runs on Node 20, which reached end of life in April 2026).
+
 ## [0.1.1] - 2026-09-30
 
 ### Added
